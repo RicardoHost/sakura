@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!--根结点必须是mapper  -->
+<mapper namespace="cn.tedu.springboot.simple.mapper.Usermapper">
+	<insert id="addnew">
+		INSERT INTO t_user (
+							
+												name,
+												password
+												) 
+								VALUES(
+												#{username},
+												#{password}
+									)
+	</insert>
+	<select id="findAll" resultType="cn.tedu.springboot.simple.entity.User">
+		SELECT  
+					name,password,phone,email
+		FROM 
+					t_user
+	</select>
+	<select id="findByUsername" resultType="cn.tedu.springboot.simple.entity.User">
+		SELECT 
+						id
+		FROM t_user
+		WHERE 
+		 			name=#{username}
+	</select>
+</mapper>
